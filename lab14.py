@@ -9,20 +9,27 @@ def print_tri(row_length):
 print_tri(5)
 print("ending...")
 
-def reverse(input_string):
+def recursive_reverse_string(input_string):
     if input_string == "":
         return input_string
     else:
-        return reverse(input_string[1:]) + input_string[0]
+        return recursive_reverse_string(input_string[1:]) + input_string[0]
 
 
-test_string = "Fool Moon night"
+test_stringv1 = "Cheese"
+test_stringv2 = "Potato"
 reversed_string = ""
-for index in range(len(test_string)):
-    if index != 0:
-        reversed_string += test_string[index*-1]
-    if index == len(test_string)-1:
-        reversed_string += test_string[0]
+def iterative_reverse_string(test_string):
+    reversed_string = ""
+    for index in range(len(test_string)):
+        if index != 0:
+            reversed_string += test_string[index*-1]
+        if index == len(test_string)-1:
+            reversed_string += test_string[0]
+    return reversed_string
+    
 
-print(reversed_string)
-print(reverse(test_string))
+print(iterative_reverse_string(test_stringv1))
+print(recursive_reverse_string(test_stringv1))
+print(iterative_reverse_string(test_stringv2))
+print(recursive_reverse_string(test_stringv2))
